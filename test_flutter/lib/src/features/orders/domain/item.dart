@@ -13,7 +13,7 @@ class Item {
 
   final ItemID id;
   final String name;
-  final int price;
+  final double price;
   final String currency;
   final Color color;
 
