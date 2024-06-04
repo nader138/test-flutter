@@ -12,7 +12,7 @@ class Order {
   final OrderID id;
   final String table;
   final int guests;
-  final DateTime date;
+  final DateTime? date;
   final List<Map<String, dynamic>> items;
 
   @override
