@@ -1,3 +1,5 @@
+import 'package:test_flutter/src/features/orders/domain/item.dart';
+
 typedef OrderID = int;
 
 class Order {
@@ -13,7 +15,7 @@ class Order {
   final String table;
   final int guests;
   final DateTime? date;
-  final List<Map<String, dynamic>> items;
+  final List<Item> items;
 
   @override
   String toString() {
