@@ -31,7 +31,10 @@ class OrdersScreen extends ConsumerWidget {
 
               return GestureDetector(
                 onTap: () {
-                  context.pushNamed(AppRoute.order.name);
+                  context.pushNamed(
+                    AppRoute.order.name,
+                    extra: orders[index],
+                  );
                 },
                 child: Card(
                   child: Row(

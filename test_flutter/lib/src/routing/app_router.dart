@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:test_flutter/src/features/orders/domain/order.dart';
 import 'package:test_flutter/src/features/orders/presentation/order_screen.dart';
 import 'package:test_flutter/src/features/orders/presentation/orders_screen.dart';
 
@@ -20,7 +21,9 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: 'order',
             name: AppRoute.order.name,
-            builder: (context, state) => const OrderScreen(),
+            builder: (context, state) => OrderScreen(
+              order: state.extra as Order,
+            ),
           ),
         ],
       ),
