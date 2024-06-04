@@ -39,6 +39,18 @@ class OrdersScreen extends ConsumerWidget {
                         ),
                       ),
                     ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(Icons.face),
+                            Text('${orders[index].guests}'),
+                          ],
+                        ),
+                        if (orders[index].date != null)
+                          Text(orders[index].date.toString()),
+                      ],
+                    ),
                   ],
                 ),
               );
