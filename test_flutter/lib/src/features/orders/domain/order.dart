@@ -14,4 +14,9 @@ class Order {
   final int guests;
   final DateTime date;
   final List<Map<String, dynamic>> items;
+
+  @override
+  String toString() {
+    return 'Order(id: $id, table: $table, guests: $guests, date: $date, items: $items)';
+  }
 }
