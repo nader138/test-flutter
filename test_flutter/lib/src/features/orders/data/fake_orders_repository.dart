@@ -18,6 +18,13 @@ class FakeOrdersRepository {
           currency: '€',
           color: Colors.red,
         ),
+        Item(
+          id: 2,
+          name: 'one',
+          price: 12.20,
+          currency: '€',
+          color: Colors.red,
+        ),
       ],
     ),
     Order(
@@ -30,6 +37,13 @@ class FakeOrdersRepository {
           id: 1,
           name: 'one',
           price: 1,
+          currency: '€',
+          color: Colors.red,
+        ),
+        Item(
+          id: 2,
+          name: 'one',
+          price: 6.55,
           currency: '€',
           color: Colors.red,
         ),

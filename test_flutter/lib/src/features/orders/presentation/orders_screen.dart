@@ -22,6 +22,11 @@ class OrdersScreen extends ConsumerWidget {
           return ListView.builder(
             itemCount: orders.length,
             itemBuilder: (context, index) {
+              final total = orders[index].items.fold<double>(
+                    0,
+                    (previousValue, element) => previousValue + element.price,
+                  );
+
               return Card(
                 child: Row(
                   children: [
@@ -51,6 +56,8 @@ class OrdersScreen extends ConsumerWidget {
                           Text(orders[index].date.toString()),
                       ],
                     ),
+                    const SizedBox(width: 24),
+                    Text('$total')
                   ],
                 ),
               );
