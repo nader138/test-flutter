@@ -17,7 +17,37 @@ class OrdersScreen extends ConsumerWidget {
           loading: () => const Center(child: CircularProgressIndicator()),
         ),
       ),
-      body: const Placeholder(),
+      body: ordersValue.when(
+        data: (orders) {
+          return ListView.builder(
+            itemCount: orders.length,
+            itemBuilder: (context, index) {
+              return Card(
+                child: Row(
+                  children: [
+                    Container(
+                      width: 48,
+                      height: 48,
+                      color: Colors.red,
+                      child: Text(
+                        orders[index].table,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+        error: (e, st) => Center(child: Text(e.toString())),
+        loading: () => const Center(child: CircularProgressIndicator()),
+      ),
     );
   }
 }
