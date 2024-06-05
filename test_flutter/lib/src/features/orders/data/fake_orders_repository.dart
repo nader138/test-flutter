@@ -20,7 +20,7 @@ class FakeOrdersRepository {
         ),
         Item(
           id: 2,
-          name: 'one',
+          name: 'two',
           price: 12.20,
           currency: '€',
           color: Colors.red,
@@ -42,7 +42,14 @@ class FakeOrdersRepository {
         ),
         Item(
           id: 2,
-          name: 'one',
+          name: 'two',
+          price: 6.55,
+          currency: '€',
+          color: Colors.red,
+        ),
+        Item(
+          id: 2,
+          name: 'two',
           price: 6.55,
           currency: '€',
           color: Colors.red,
