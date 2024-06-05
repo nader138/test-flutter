@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:test_flutter/src/features/orders/data/fake_orders_repository.dart';
+import 'package:test_flutter/src/features/orders/data/orders_repository.dart';
 import 'package:test_flutter/src/routing/app_router.dart';
 
 class OrdersScreen extends ConsumerWidget {
@@ -9,7 +9,7 @@ class OrdersScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ordersValue = ref.watch(fakeOrdersFutureProvider);
+    final ordersValue = ref.watch(ordersFutureProvider);
 
     return Scaffold(
       appBar: AppBar(
