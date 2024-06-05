@@ -1,0 +1,67 @@
+Process:
+--------
+
+- The app is designed with an architecture that gets its inspiration
+from the Clean Architecture: where the UI logic, the business logic
+and the data access logic are separated to make writing, maintaining
+and testing code easier. In our case, the architecture is composed of
+4 conceptual layers:
+    1. Presentation layer: where the UI logic lives and is connected 
+    to the other layers via 'controllers'. Controllers handle user's
+    input, such as validating forms or triggering actions. However, 
+    in our demo, we have no use for controllers since we're only
+    reading data. Therefore, this layer hosts the UI for the orders
+    and order detail screens.
+    2. Domain layer: this layer hosts the models that are used across
+    the app. This is helpful for deserializing the data read from the
+    source and representing it in the form of classes. In our case,
+    we created the 'Order' model and the 'Item' model and we use them
+    to instantiate objects that the UI will be based upon.
+    3. Application layer: this layer hasn't been used in our case. In
+    general, it holds business logic that depends on multiple data
+    sources.
+    4. Data layer: also known as 'repository', it is used to 
+    communicate with the outside world (database, REST API..). In our
+    demo, we've created two repositories: a fake one that emulates data
+    fetched from an api, and a second one that fetches data from a route
+    via a GET request. 
+
+- The project is structured in a way that enables scaling features
+horizontally. For instance, features are placed in separate folders and 
+each folder is split into subdirectories that represent the aformentioned
+coneptual layers. We've placed these files in a 'src' directory to
+separate it from 'main.dart', the app's entry point. Moreover, we created
+a 'routing' directory that encapsulates the routing configuration. This
+enables developers to add features to the app at the same time, and with
+minimal dependance/risk.
+
+- The project was started using the 'skeleton' approach, where we build
+the pieces that will cut through the whole functionality and see it running 
+end to end. This helps us identify the technical risks early on to be 
+able to mitigate them. In our demo, we've implemented the 'orders' feature
+using fake data first. This helped us identify the business logic that is
+needed.
+
+- Riverpod was used to expose the data fetched from the API and expose it to
+the orders screens. GoRouter was used to enable routing, as well as passing
+objects from the orders screen to the order (detail) screen. The app is not
+ready for production yet, and the next steps to be done can be found in the 
+following section.
+
+
+Next steps:
+----------
+
+- There are a lot of work that remains to be done before the app is considered
+production ready. The most important of all is the handling of cases where the
+data that is read from the API is corrupt or malformed. For now, the design
+assumes that the data read is always in the correct form.
+
+- Another part that needs improving is the code itself. For now, the code was 
+made with haste, and therefore is not optimal (from a performance perspective) 
+and its readability can be improved.
+
+- The UI is nowhere near ready. For now, it presents the information that can
+be found in the screenshots, and it respects the order of the screen i.e. the
+orders screen comes first pushes the detais screen. However, the UI design does 
+not reflect the one that is shown in the screenshots.
